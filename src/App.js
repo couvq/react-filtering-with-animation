@@ -6,6 +6,8 @@ import Filter from './Filter';
 function App() {
 
   const [popular, setPopular] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [activeGenre, setActiveGenre] = useState(0); // set to 0 (all?) initially bc api uses numbers to represent a genre, comedy is 35, action is 28
 
   useEffect(() => {
     fetchPopular();
@@ -17,13 +19,14 @@ function App() {
     const movies = await data.json();
   
     setPopular(movies.results);
+    setFiltered(movies.results);
   }
 
   return (
     <div className="App">
-      <Filter />
+      <Filter popular={popular} setFiltered={setFiltered} activeGenre={activeGenre} setActiveGenre={setActiveGenre} />
       <div className='popular-movies'>
-        {popular.map(movie => {
+        {filtered.map(movie => {
           return <Movie key={movie.id} movie={movie} />
         })}
       </div>
