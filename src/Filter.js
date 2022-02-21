@@ -5,7 +5,11 @@ const Filter = () => {
 
 
   return (
-    <div>Filter</div>
+    <div className="filter-container">
+        <button>All</button>
+        <button>Comedy</button>
+        <button>Action</button>
+    </div>
   );
 }
 
