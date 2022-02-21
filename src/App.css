@@ -30,7 +30,7 @@ h2 {
   cursor: pointer;
 }
 
-.filter-container button.active, button:hover {
+.active, button:hover {
   background: rgb(65, 98, 168); 
   color: white; 
 }
